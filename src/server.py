@@ -1,5 +1,6 @@
 import json
 from random import randrange
+from ._version import __version__
 
 from fastapi import FastAPI, HTTPException
 from fastapi.encoders import jsonable_encoder
@@ -9,7 +10,20 @@ with open("./database/data.json") as json_file:
     data = json.load(json_file)
     dataLength = len(data)
 
-app = FastAPI()
+app = FastAPI(
+    title="Dog Facts API",
+    description="An API returns random dog facts 🐶",
+    version=__version__,
+    contact={
+        "name": "Alex Raskin",
+        "url": "https://github.com/alexraskin/Dog-facts-API",
+        "email": "gritty.ice8706@fastmail.com",
+    },
+    license_info={
+        "name": "MIT",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
+    },
+)
 
 
 @app.get("/", tags=["Root"], include_in_schema=False)
