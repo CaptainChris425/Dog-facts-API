@@ -51,4 +51,4 @@ def test_number():
 def test_fact_index():
     response = client.get("/api/v1/resources/dogs?index=5")
     assert response.status_code == 200
-    assert response.json() == {"fact": "Dogs have sweat glands in between their paws."}
+    assert response.json() == [{'fact': 'Dogs have sweat glands in between their paws.'}]
