@@ -51,3 +51,10 @@ async def api_number(number: int = None, index: int = None):
             detail="The resource could not be found. Please check your query",
         )
     return jsonable_encoder(results)
+
+@app.get("/api/v1/resources/cats", tags=["Cats"])
+async def api_cats():  
+    raise HTTPException(
+        status_code=451,
+        detail="We don't serve cats"
+    )
