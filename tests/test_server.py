@@ -53,7 +53,7 @@ def test_fact_index():
     assert response.status_code == 200
     assert response.json() == [{'fact': 'Dogs have sweat glands in between their paws.'}]
 
-def test_bad_request():
+def test_cat_request():
     response = client.get("/api/v1/resources/cats")
     assert response.status_code == 451
     assert response.json() == {"detail": "We don't serve cats"}
