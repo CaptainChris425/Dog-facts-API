@@ -31,12 +31,12 @@ async def read_root():
     return RedirectResponse(url="/docs")
 
 
-@app.get("/api/v1/resources/dogs/all")
+@app.get("/api/v1/resources/dogs/all", tags=["All Dog Facts"])
 async def api_all():
     return jsonable_encoder(data)
 
 
-@app.get("/api/v1/resources/dogs")
+@app.get("/api/v1/resources/dogs", tags=["Random Dog Fact/s"])
 async def api_number(number: int = None, index: int = None):
     results = []
     if number:
