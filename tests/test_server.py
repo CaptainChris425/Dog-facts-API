@@ -46,3 +46,9 @@ def test_number_incorrect_query():
 def test_number():
     response = client.get("/api/v1/resources/dogs?number=1")
     assert response.status_code == 200
+
+
+def test_fact_index():
+    response = client.get("/api/v1/resources/dogs?index=5")
+    assert response.status_code == 200
+    assert response.json() == {"fact": "Dogs have sweat glands in between their paws."}
